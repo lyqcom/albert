@@ -1,0 +1,73 @@
+
+input_file: "./data/pre_train/row_data"
+
+output_file: "./data/pre_train/train_data/run/train_en_128.mindrecord"
+
+output_file_num: 2
+
+vocab_file: "./data/vocab.txt"
+
+spm_model_file:
+
+input_file_mode: 'r'
+
+do_lower_case: True
+
+do_whole_word_mask: True
+
+do_permutation: False
+
+favor_shorter_ngram: True
+
+random_next_sentence: False
+
+max_seq_length: 128
+
+ngram: 3
+
+max_predictions_per_seq: 20
+
+random_seed: 12345
+
+dupe_factor: 5
+
+masked_lm_prob: 0.15
+
+short_seq_prob: 0.1
+
+---
+# Help description for each configuration
+enable_modelarts: "Whether training on modelarts, default: False"
+data_url: "Url for modelarts"
+train_url: "Url for modelarts"
+data_path: "The location of the input data."
+output_path: "The location of the output file."
+device_target: "Running platform, choose from Ascend or CPU, and default is Ascend."
+enable_profiling: 'Whether enable profiling while training, default: False'
+
+distribute: "Run distribute, default is 'false'."
+epoch_size: "Epoch size, default is 1."
+enable_save_ckpt: "Enable save checkpoint, default is true."
+enable_lossscale: "Use lossscale or not, default is not."
+do_shuffle: "Enable shuffle for dataset, default is true."
+enable_data_sink: "Enable data sink, default is true."
+data_sink_steps: "Sink steps for each epoch, default is 1."
+accumulation_steps: "Accumulating gradients N times before weight update, default is 1."
+allreduce_post_accumulation: "Whether to allreduce after accumulation of N steps or after each step, default is true."
+save_checkpoint_path: "Save checkpoint path"
+load_checkpoint_path: "Load checkpoint file path"
+save_checkpoint_steps: "Save checkpoint steps, default is 1000"
+train_steps: "Training Steps, default is -1, meaning run all steps according to epoch number."
+save_checkpoint_num: "Save checkpoint numbers, default is 1."
+data_dir: "Data path, it is better to use absolute path"
+schema_dir: "Schema path, it is better to use absolute path"
+---
+# chocies
+device_target: ['Ascend', 'GPU']
+distribute: ["true", "false"]
+enable_save_ckpt: ["true", "false"]
+enable_lossscale: ["true", "false"]
+do_shuffle: ["true", "false"]
+enable_data_sink: ["true", "false"]
+allreduce_post_accumulation: ["true", "false"]
+
